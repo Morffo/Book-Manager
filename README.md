@@ -13,6 +13,13 @@ python -m venv venv
 source venv/bin/activate
 ```
 
+## Third step: installing libraries:
+
+```Bash
+pip install -r requirements.txt
+```
+
+
 ## Launch:
 
 ```Bash
