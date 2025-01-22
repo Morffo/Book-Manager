@@ -23,10 +23,10 @@ pip install -r requirements.txt
 ## Launch:
 
 ```Bash
-python music_oop.py
+python terminal_manager_main.py
 ```
 OR
 
 ```Bash
-python tkinter_interface.py
+python tkinter_manager.py
 ```
