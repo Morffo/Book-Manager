@@ -58,14 +58,14 @@ class User:
         self.nickname = nickname
         self.password = hashlib.sha256(password.encode("utf-8")).hexdigest()
 
-    @staticmethod
+    @staticmethod # staticmethod тут используется потому, что технически метод register не относится к классу User, мы подчеркиваем логическую связ
     def register(db, nickname, password):
         user = User(nickname, password)
         try:
-            db.insert_user(user.nickname, user.password)
+            db.insert_user(user.nickname, user.password) # insert_user по сути за регистрацию и отвечает
             print("Выполняю инициализацию...")
             time.sleep(1)
-            config.prog_bar("Создание пользователя: ")
+            config.prog_bar("Создание пользователя: ") # эта штука уже чисто косметическая
         except sqlite3.IntegrityError:
             print("Пользователь с таким именем уже существует.")
 
@@ -163,7 +163,7 @@ class LibraryApp:
             print("Книга", book_title, "была успешно добавлена по пути:", book_path)
         
     def show_books(self):
-        books = self.db.get_books(self.user_id)
+        books = self.db.get_books(self.user_id) # получаем все книги
         print("\n-----------------------")
         for row in books:
             print(f"{row[0]}. {row[1]}")
